@@ -265,6 +265,29 @@ body.nav-open .nav__toggle span:nth-child(3) { top: 10px; transform: rotate(-45d
 .card--tall { grid-column: span 2; aspect-ratio: 3/4; }
 .card--std  { grid-column: span 2; aspect-ratio: 4/5; }
 .card--half { grid-column: span 3; aspect-ratio: 5/4; }
+.card--p3   { grid-column: span 3; aspect-ratio: 3/4; }
+
+/* ============================================================
+   BEYOND BRONZE — BOOKS / AUTHOR
+   ============================================================ */
+.books { background: radial-gradient(120% 130% at 75% 0%, #241b12, var(--ink)); color: var(--cream); }
+.books__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
+.books__intro .eyebrow { color: var(--gold); }
+.books__intro .eyebrow::before { background: linear-gradient(90deg, transparent, var(--gold)); }
+.books__intro h2 { color: var(--cream); }
+.books__intro p { color: #d3c7b1; margin-top: 1.2rem; }
+.books__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; }
+.book { cursor: pointer; }
+.book__cover {
+  border: 1px solid rgba(216,182,117,.28); box-shadow: var(--shadow);
+  overflow: hidden; aspect-ratio: 3/4; padding: 1rem;
+  background: linear-gradient(160deg, #2b2118, #14110c);
+  display: grid; place-items: center;
+}
+.book__cover img { max-width: 100%; max-height: 100%; width: auto; object-fit: contain; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+.book:hover .book__cover img { transform: scale(1.05); }
+.book h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--cream); margin-top: 1rem; line-height: 1.15; }
+.book span { display: block; font-family: var(--display); font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-top: .5rem; }
 
 /* ============================================================
    DISCIPLINES / WHAT HE MAKES
@@ -386,8 +409,9 @@ body.nav-open .nav__toggle span:nth-child(3) { top: 10px; transform: rotate(-45d
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .grid { grid-template-columns: repeat(4, 1fr); }
   .card--wide { grid-column: span 4; }
-  .card--half { grid-column: span 2; }
+  .card--half, .card--p3 { grid-column: span 2; }
   .card--tall, .card--std { grid-column: span 2; }
+  .books__grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
   .nav__links {
@@ -405,7 +429,8 @@ body.nav-open .nav__toggle span:nth-child(3) { top: 10px; transform: rotate(-45d
   .stats { gap: 1.6rem; }
   .footer__grid { grid-template-columns: 1fr; }
   .grid { grid-template-columns: repeat(2, 1fr); }
-  .card--wide, .card--half, .card--tall, .card--std { grid-column: span 2; aspect-ratio: 4/3; }
+  .card--wide, .card--half, .card--tall, .card--std, .card--p3 { grid-column: span 2; aspect-ratio: 4/3; }
+  .books__row { gap: 1rem; }
   .footer__bottom { flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) {

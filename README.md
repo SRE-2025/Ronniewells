@@ -30,8 +30,8 @@ assets/images/        Drop photos here — see assets/images/README.md
 ## Before you go live — quick checklist
 Everything works now; these swap in the real details:
 
-1. **Add the photos.** See `assets/images/README.md` — drop them in with the
-   listed filenames and they appear automatically.
+1. **Photos — done.** All of the gallery's images are in place as WebP files
+   (`assets/images/`). See `assets/images/README.md` for what each one is.
 2. **Contact details.** In `index.html`, search for `[ Add` and fill in the
    address, phone, and `tel:` link. Update the email if it isn't
    `info@ronniewells.com`.
