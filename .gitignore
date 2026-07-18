@@ -1,0 +1,3 @@
+# Downloaded build dependencies (fonts + QR lib) — refetched by build/regenerate.sh
+.build/fonts/
+.build/qrcode.js

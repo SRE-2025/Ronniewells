@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wells Gallery — Scan Poster</title>
+<style>
+  @font-face { font-family:'Cinzel'; src:url('fonts/Cinzel.ttf') format('truetype'); font-weight:400 900; font-display:block; }
+  @font-face { font-family:'Cormorant Garamond'; src:url('fonts/CormorantGaramond.ttf') format('truetype'); font-weight:300 700; font-style:normal; font-display:block; }
+  @font-face { font-family:'Cormorant Garamond'; src:url('fonts/CormorantGaramond-Italic.ttf') format('truetype'); font-weight:300 700; font-style:italic; font-display:block; }
+  @font-face { font-family:'Spectral'; src:url('fonts/Spectral-Regular.ttf') format('truetype'); font-weight:400; font-display:block; }
+  @font-face { font-family:'Spectral'; src:url('fonts/Spectral-Medium.ttf') format('truetype'); font-weight:500; font-display:block; }
+
+  :root{
+    --cream:#f4ecdd; --parch:#ece1cd; --ink:#201a12; --bronze:#a9743f;
+    --bronze-dk:#8a5c30; --gold:#c9a45f; --muted:#8a7c66; --qr:#14636e;
+  }
+  *{box-sizing:border-box; margin:0;}
+  @page{ size:8.5in 11in; margin:0; }
+  html,body{ width:8.5in; height:11in; overflow:hidden; }
+  body{
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #f8f1e4 0%, var(--cream) 55%, var(--parch) 100%);
+    font-family:'Spectral',Georgia,serif; color:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .frame{
+    width:7.3in; height:9.7in; padding:.46in .6in;
+    border:2px solid var(--bronze);
+    outline:1px solid var(--bronze); outline-offset:6px;
+    position:relative; text-align:center;
+    display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  }
+  /* corner ticks */
+  .frame::before,.frame::after{
+    content:""; position:absolute; width:26px; height:26px; border:1px solid var(--gold);
+  }
+  .frame::before{ top:-8px; left:-8px; border-right:0; border-bottom:0; }
+  .frame::after{ bottom:-8px; right:-8px; border-left:0; border-top:0; }
+
+  .logo{ height:1.0in; width:auto; margin-top:.02in; }
+  .eyebrow{
+    font-family:'Cinzel',serif; font-weight:600; font-size:11pt;
+    letter-spacing:.42em; text-transform:uppercase; color:var(--bronze-dk);
+    margin:.24in 0 .1in; display:flex; align-items:center; gap:.9rem;
+  }
+  .eyebrow::before,.eyebrow::after{ content:""; width:34px; height:1px; background:var(--bronze); opacity:.6; }
+
+  h1{
+    font-family:'Cormorant Garamond',serif; font-weight:500; font-style:italic;
+    font-size:46pt; line-height:.98; letter-spacing:.01em; color:var(--ink);
+  }
+  h1 .plain{ font-style:normal; }
+  .sub{
+    max-width:5.1in; margin:.18in auto 0; font-size:13pt; line-height:1.5; color:#4a4031;
+  }
+
+  .qr-wrap{ margin-top:.28in; }
+  .qr-card{
+    width:3.2in; height:3.2in; padding:.24in; background:#fff;
+    border:1px solid rgba(169,116,63,.35);
+    box-shadow:0 18px 42px -20px rgba(32,20,8,.55);
+    position:relative; border-radius:6px;
+  }
+  .qr-card::after{
+    content:""; position:absolute; inset:.12in; border:1px solid rgba(20,99,110,.16); border-radius:3px; pointer-events:none;
+  }
+  #qr{ width:100%; height:100%; }
+  #qr svg{ width:100%; height:100%; display:block; }
+
+  .scan{
+    font-family:'Cinzel',serif; font-weight:600; font-size:10pt; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--qr); margin-top:.22in;
+    display:flex; align-items:center; gap:.7rem; justify-content:center;
+  }
+  .scan svg{ width:15px; height:15px; }
+  .url{
+    font-family:'Cormorant Garamond',serif; font-weight:600; font-size:21pt;
+    color:var(--ink); margin-top:.04in; letter-spacing:.01em;
+  }
+  .rule{ width:1.4in; height:1px; background:var(--bronze); opacity:.5; margin:.2in 0 .13in; }
+  .foot{
+    font-family:'Cinzel',serif; font-size:8.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);
+  }
+  .foot .wg{ color:var(--bronze-dk); }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <img class="logo" src="../assets/images/logo.webp" alt="Wells Gallery">
+    <div class="eyebrow">Wildlife Art in Motion</div>
+    <h1><span class="plain">Step Inside</span><br>the Gallery</h1>
+    <p class="sub">Point your phone camera at the code below to explore Ronnie Wells’ bronze — wildlife, monuments, and pieces you can commission.</p>
+
+    <div class="qr-wrap">
+      <div class="qr-card"><div id="qr"></div></div>
+    </div>
+
+    <div class="scan">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M4 12h16"/></svg>
+      Scan with your phone camera
+    </div>
+    <div class="url">www.ronniewells.com</div>
+
+    <div class="rule"></div>
+    <div class="foot"><span class="wg">Wells Gallery</span> &nbsp;·&nbsp; Ronnie Wells</div>
+  </div>
+
+  <script src="qrcode.js"></script>
+  <script>
+    (function(){
+      var TARGET = "https://www.ronniewells.com/";   // QR destination
+      var QCOL   = getComputedStyle(document.documentElement).getPropertyValue('--qr').trim() || '#14636e';
+
+      // Build the module matrix with a known-good encoder (error correction H)
+      var holder = document.createElement('div');
+      var qr = new QRCode(holder, { text: TARGET, width: 400, height: 400, correctLevel: QRCode.CorrectLevel.H });
+      var model = qr._oQRCode;
+      var n = model.moduleCount;
+      var quiet = 4, total = n + quiet * 2;
+
+      function isDark(r,c){ return r>=0 && r<n && c>=0 && c<n && model.modules[r][c] === true; }
+      function inFinder(r,c){
+        return (r<7 && c<7) || (r<7 && c>=n-7) || (r>=n-7 && c<7);
+      }
+      function rr(x,y,w,h,rad,fill){
+        return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+rad+'" ry="'+rad+'" fill="'+fill+'"/>';
+      }
+
+      var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+total+' '+total+'" shape-rendering="geometricPrecision">';
+      s += '<rect width="'+total+'" height="'+total+'" fill="#ffffff"/>';
+
+      // rounded data dots (skip finder zones — drawn as custom eyes)
+      for (var r=0;r<n;r++){
+        for (var c=0;c<n;c++){
+          if(!isDark(r,c) || inFinder(r,c)) continue;
+          var x=c+quiet, y=r+quiet;
+          s += rr(x+0.06, y+0.06, 0.88, 0.88, 0.34, QCOL);
+        }
+      }
+      // three finder eyes: teal 7x7 ring + white notch + teal 3x3 core
+      function eye(rr0, cc0){
+        var x=cc0+quiet, y=rr0+quiet;
+        return rr(x, y, 7, 7, 1.7, QCOL)
+             + rr(x+0.85, y+0.85, 5.3, 5.3, 1.25, '#ffffff')
+             + rr(x+2, y+2, 3, 3, 0.95, QCOL);
+      }
+      s += eye(0, 0) + eye(0, n-7) + eye(n-7, 0);
+      s += '</svg>';
+
+      document.getElementById('qr').innerHTML = s;
+    })();
+  </script>
+</body>
+</html>
